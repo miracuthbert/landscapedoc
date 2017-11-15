@@ -1,0 +1,1 @@
+@extends('admin.areas.partials._base_area')

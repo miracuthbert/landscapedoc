@@ -1,0 +1,39 @@
+/* CUSTOM STYLES */
+
+/* SERVICES STYLES */
+#services, #services .service-heading, #services .service-text {
+    text-align: center;
+}
+
+/* TESTIMONIALS STYLES */
+#testimonials {
+    text-align: center;
+}
+
+#testimonials .carousel-inner {
+    background-color: #ecf0f1;
+}
+
+/* TOP STYLES*/
+#top {
+    background-color: #555555;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+#top .nav-pills>li>a {
+    color: #ffffff;
+}
+
+#top .nav>li>a:focus, .nav>li>a:hover {
+    background-color: #8BC34A;
+}
+
+/* GLOBAL STYLES */
+.custom-divider {
+    margin: 5rem 0;
+}
+
+.img-cricle {
+    border-radius: 100%;
+}
