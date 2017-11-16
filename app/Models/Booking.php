@@ -52,7 +52,7 @@ class Booking extends Model
      */
     public function expBudget()
     {
-        return $this->budget->expected_budget;
+        return $this->budget != null ? $this->budget->expected_budget : 0.00;
     }
 
     /**
@@ -68,7 +68,7 @@ class Booking extends Model
      */
     public function expStart()
     {
-        return $this->timeline->starts_at;
+        return $this->timeline != null ? $this->timeline->starts_at : null;
     }
 
     /**
@@ -76,6 +76,6 @@ class Booking extends Model
      */
     public function expEnd()
     {
-        return $this->timeline->ends_at;
+        return $this->timeline != null ? $this->timeline->ends_at : null;
     }
 }
