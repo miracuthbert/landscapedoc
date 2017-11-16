@@ -79,6 +79,21 @@ class User extends Authenticatable
         return !empty($this->last_login_at) ? $this->last_login_at->diffForHumans() : 'Unknown';
     }
 
+    /**
+     * Get user's full name.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return $this->first_name ." " . $this->last_name;
+    }
+
+    /**
+     * Get user's avatar.
+     *
+     * @return string
+     */
     public function avatar()
     {
         $email = md5($this->email);
