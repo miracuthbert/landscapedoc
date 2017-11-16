@@ -19,9 +19,7 @@ class ServiceBookingController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth' => [
-            'except' => ['create', 'store']
-        ]]);
+        $this->middleware(['auth'])->except(['create', 'store']);
     }
 
     /**
@@ -31,10 +29,7 @@ class ServiceBookingController extends Controller
      */
     public function index()
     {
-        //budgets table
-
-        //timeline table
-
+        //
     }
 
     /**
@@ -48,7 +43,10 @@ class ServiceBookingController extends Controller
     {
         $user = $request->user();
 
-        return view('services.service.bookings.create', compact('service', 'user'));
+        //Get only usable areas
+        $areas = $service->areas()->where('service_areas.usable', true)->get();
+
+        return view('services.service.bookings.create', compact('service', 'user', 'areas'));
     }
 
     /**
@@ -124,7 +122,10 @@ class ServiceBookingController extends Controller
      */
     public function edit(Request $request, Service $service, Booking $booking)
     {
-        return view('services.service.bookings.edit', compact('service', 'booking'));
+        //Get only usable areas
+        $areas = $service->areas()->where('service_areas.usable', true)->get();
+
+        return view('services.service.bookings.edit', compact('service', 'booking', 'areas'));
     }
 
     /**
