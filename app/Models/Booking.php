@@ -72,10 +72,26 @@ class Booking extends Model
     }
 
     /**
+     * Get the booking expected start date.
+     */
+    public function expStartDate()
+    {
+        return $this->expStart() != null ? $this->expStart()->toDateString() : null;
+    }
+
+    /**
      * Get the booking expected end.
      */
     public function expEnd()
     {
         return $this->timeline != null ? $this->timeline->ends_at : null;
+    }
+
+    /**
+     * Get the booking expected end date.
+     */
+    public function expEndDate()
+    {
+        return $this->expEnd() != null ? $this->expEnd()->toDateString() : null;
     }
 }
