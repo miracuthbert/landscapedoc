@@ -20,34 +20,44 @@
         </div>
     </header>
 
-    <div id="services">
-        <div class="container">
-            <div class="row">
-                @forelse($services as $service)
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img src="{{ url($service->image) }}" alt="{{ $service->name }} image"
-                                 class="card-img-top">
-                            <div class="card-body">
-                                <h4 class="card-title">{{ $service->name }}</h4>
-                                <p class="card-text">{{ $service->overview }}</p>
-                                <a class="card-link btn btn-outline-primary mr-auto"
-                                   href="{{ route('services.show', [$service]) }}" role="button">View</a>
-                                <a role="button" href="{{ route('service.booking.create', [$service]) }}"
-                                   class="card-link btn btn-success">
-                                    <i class="fa-fa-calendar-plus"></i> Book now!
-                                </a>
+
+    @if($services->total() > 0)
+        <!-- Services -->
+        <div id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 mx-auto">
+                        <h2 class="text-center mb-4">Services</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($services as $service)
+                        <div class="col-lg-{{ $services->total() == 1 ? 12 : $services->total() == 2 ? 6 : 4  }}">
+                            <div class="card">
+                                <img src="{{ url($service->image) }}" alt="{{ $service->name }} image"
+                                     class="card-img-top" height="200px">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ $service->name }}</h4>
+                                    <p class="card-text">{{ $service->overview }}</p>
+                                    <a class="card-link btn btn-outline-primary mr-auto"
+                                       href="{{ route('services.show', [$service]) }}" role="button">View</a>
+                                    <a role="button" href="{{ route('service.booking.create', [$service]) }}"
+                                       class="card-link btn btn-success">
+                                        <i class="fa-fa-calendar-plus"></i> Book now!
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                    @endforeach
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 mx-auto text-center">
+                        <a href="{{ route('services.index') }}" class="btn btn-success btn-lg">View All</a>
                     </div>
-                @empty
-                    <p class="lead text-center">Coming Soon.</p>
-                @endforelse
+                </div>
             </div>
-        </div>
-    </div>
-
-    </div><!-- /#services -->
+        </div><!-- /#services -->
+    @endif
 @endsection
 
 {{--<div id="testimonials">--}}
