@@ -10,6 +10,13 @@ class Timeline extends Model
 {
     use OrderableTrait, PivotOrderableTrait;
 
+    protected $dates = [
+        'starts_at',
+        'ends_at',
+        'started_at',
+        'completed_at',
+    ];
+
     /**
      * Get all of the owning timeable models.
      */
