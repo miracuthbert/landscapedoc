@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     @foreach($services as $service)
-                        <div class="col-lg-{{ $services->total() == 1 ? 12 : $services->total() == 2 ? 6 : 4  }}">
+                        <div class="col-lg-{{ $services->total() == 1 ? 12 : $services->total() == 2 ? '6 mx-auto' : 4  }}">
                             <div class="card">
                                 <img src="{{ url($service->image) }}" alt="{{ $service->name }} image"
                                      class="card-img-top" height="200px">
