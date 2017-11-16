@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <select name="area" id="area" class="form-control">
                                     <option value="">Choose an area near you</option>
-                                    @foreach($service->areas as $area)
+                                    @foreach($areas as $area)
                                         <option value="{{ $area->id }}" {{ $booking->area_id == $area->id ? 'selected' : '' }}>
                                             {{ $area->name }}
                                         </option>

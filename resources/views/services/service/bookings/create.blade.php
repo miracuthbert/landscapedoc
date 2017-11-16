@@ -31,7 +31,7 @@
                             <div class="col-md-6">
                                 <select name="area" id="area" class="form-control">
                                     <option value="">Choose an area near you</option>
-                                    @foreach($service->areas as $area)
+                                    @foreach($areas as $area)
                                         <option value="{{ $area->id }}">{{ $area->name }}</option>
                                     @endforeach
                                 </select>
@@ -135,7 +135,7 @@
                                 <label for="phone" class="col-md-4 control-label">Mobile Phone No.</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="number" class="form-control" name="phone"
+                                    <input id="phone" type="text" class="form-control" name="phone"
                                            value="{{ old('phone') }}" required>
 
                                     @if ($errors->has('phone'))
