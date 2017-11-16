@@ -76,7 +76,6 @@ class ServiceController extends Controller
     public function store(StoreServiceFormRequest $request)
     {
         $areas = $request->areas;
-        $price = $request->input('price');
 
         $service = new Service();
         $service->name = $request->input('name');
@@ -91,10 +90,11 @@ class ServiceController extends Controller
 
             //add service price
             $price = new Price();
-            $price->price = $price;
+            $price->price = $request->input('price');
+            $price->usable = true;
 
             if ($service->prices()->save($price)) {
-                $service->prices()->whereNotIn('id', [$price->id])->update(['usable' => false]);
+                $service->prices()->where('id', '<>', $price->id)->update(['usable' => false]);
             }
 
             //add service areas
