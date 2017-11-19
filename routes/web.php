@@ -192,12 +192,13 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
          */
         Route::group(['prefix' => '/{service}'], function () {
             Route::resource('/bookings', 'ServiceBookingController', [
-                'only' => ['index', 'store', 'edit', 'update'],
+                'only' => ['index', 'store', 'edit', 'update', 'destroy'],
                 'names' => [
                     'index' => 'admin.services.bookings.index',
                     'store' => 'admin.services.bookings.store',
                     'edit' => 'admin.services.bookings.edit',
                     'update' => 'admin.services.bookings.update',
+                    'destroy' => 'admin.services.bookings.destroy',
                 ]
             ]);
         });
