@@ -1,0 +1,1 @@
+@extends('admin.services.bookings.partials._base_booking')
